@@ -16,13 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from wabapp.views import bienvenido, despedirse
+from personas.views import detalleDomicilio, detallePersona, editarDomicilio, editarPersona, eliminarDomicilio, eliminarPersona, nuevaPersona, nuevoDomicilio
+from wabapp.views import bienvenido, indexDomicilio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('bienvenido/', bienvenido)
-    path('', bienvenido),
-    path('despedida', despedirse)
-
+    path('', bienvenido, name='index'),
+    path('detalle_persona/<int:id>', detallePersona),
+    path('nueva_persona', nuevaPersona),
+    path('editar_persona/<int:id>', editarPersona),
+    path('eliminar_persona/<int:id>', eliminarPersona),
+    path('index_domicilio', indexDomicilio, name='index_domicilio'),
+    path('detalle_domicilio/<int:id>', detalleDomicilio),
+    path('editar_domicilio/<int:id>', editarDomicilio),
+    path('eliminar_domicilio/<int:id>', eliminarDomicilio),
+    path('nuevo_domicilio', nuevoDomicilio),
+    
+    
 ]
